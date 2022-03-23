@@ -13,7 +13,7 @@
     * Senha
         * Troca de senha
     * Email
-        *Troca de email
+        * Troca de email
     * Descrição
     * Localização
 - **Jogo**
