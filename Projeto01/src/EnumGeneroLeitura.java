@@ -1,0 +1,3 @@
+public enum EnumGeneroLeitura {
+    TERROR, ROMANCE, FICÇÃO, FILOSOFIA, COMÉDIA, AUTOBIOGRAFIA, BIOGRAFIA
+}
