@@ -4,11 +4,11 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from tkinter import PhotoImage
 
-class MinhaUI():
+class Pagina():
     def _construir_base(self):
         janela = ttk.Window(
-            title="Minha GUI Mauá",
-            size= (1440,1024),
+            title="",
+            size= (1366,768),
             minsize= (600,300),
             maxsize= (1800,900),
             alpha=1.0
@@ -22,5 +22,6 @@ class MinhaUI():
     def run(self):
         self.base.mainloop()
 
-app = MinhaUI()
-app.run()
+if __name__ == "__main__":
+    app = Pagina()
+    app.run()
