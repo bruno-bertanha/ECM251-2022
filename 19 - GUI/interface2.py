@@ -14,7 +14,7 @@ class MinhaUI():
             maxsize= (1800,900),
             alpha=1.0
         )
-        janela.iconphoto(False, PhotoImage(file='calculator.png'))
+        janela.iconphoto(False, PhotoImage(file='petix_logo.png'))
         return janela
 
     def _criar_botao(self, texto, acao):
