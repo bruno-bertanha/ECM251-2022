@@ -1,13 +1,28 @@
 import streamlit as st
 from modelos.item import Item
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
+
+if 'user' not in st.session_state:
+    st.session_state.user = None
+if 'logged_in' not in st.session_state:
+    st.session_state.logged_in = False
+
 
 with col1: 
     st.markdown("# Quokka Store")
     st.markdown("### Welcome to the Quokka Store! 🦘")
 with col2:
     st.image("media/quokka.png", width=200) 
+with col3:
+    if st.session_state.logged_in:
+        st.markdown("### Hello, " + st.session_state.user.get_username() + "!")
+        if st.button("Logout"):
+            st.session_state.logged_in = False
+            st.session_state.user = None
+    else:
+        st.markdown("### Please Login!")
+    
 
 st.write("")
 st.write("")
