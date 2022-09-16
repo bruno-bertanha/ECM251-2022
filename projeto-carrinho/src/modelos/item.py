@@ -1,14 +1,21 @@
 class Item():
-    def __init__(self, preco, nome, descricao=None):
-        self._nome = nome
-        self._preco = preco
-        self._descricao = descricao
+    def __init__(self, price, name, image, description=None):
+        self._name = name
+        self._price = price
+        self._description = description
+        self._image = image
 
     def __str__(self):
-        return f'{self._nome}: R$ {self._preco}'
+        return f'{self._name}: R$ {self._price}'
     
-    def get_nome(self):
-        return self._nome
+    def get_name(self):
+        return self._name
 
-    def get_preco(self):
-        return self._preco
+    def get_price(self):
+        return self._price
+
+    def get_description(self):
+        return self._description
+    
+    def get_image(self):
+        return self._image
