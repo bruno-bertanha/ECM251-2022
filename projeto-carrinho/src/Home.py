@@ -18,7 +18,7 @@ with col1:
     st.markdown("# Quokka Store")
     st.markdown("### Welcome to the Quokka Store! 🦘")
 with col2:
-    st.image("media/quokka.png", width=200) 
+    st.image("https://i.ibb.co/yW9fm7k/quokka.png", width=200)
 with col3:
     if st.session_state.logged_in:
         st.markdown("### Hello, " + st.session_state.user.get_username() + "!")
@@ -38,7 +38,7 @@ products = [
             Item(   
                 79.99,
                 "Funny Quokka T-Shirt",
-                "media/tshirt.jpg",
+                "https://i.ibb.co/chLzdt7/tshirt.jpg",
                 """
                 This is a funny t-shirt with a quokkazilla on it.
                 It is made of 100% cotton and is machine washable.
@@ -48,7 +48,7 @@ products = [
             Item(
                 49.99,
                 "Quokka Socks",
-                "media/socks.jpg",
+                "https://i.ibb.co/sP8rDpk/socks.jpg",
                 """
                 These are comfy socks with a quokka on it.
                 It is made of 100% cotton and is machine washable.
@@ -58,7 +58,7 @@ products = [
             Item(
                 129.99,
                 "Quokka Plushie",
-                "media/plushie.jpg",
+                "https://i.ibb.co/HxB18Jt/plushie.jpg",
                 """
                 This is a cute plushie of a quokka.
                 It's perfect to comfort you during your most troubled nights.
@@ -68,7 +68,7 @@ products = [
             Item(
                 59.99,
                 "Quokka Mug",
-                "media/mug.jpg",
+                "https://i.ibb.co/LtmhQ02/mug.jpg",
                 """
                 A perfect mug to drink your coffee or tea. Since it's made of ceramic, it's safe to put it in the microwave and also the quokka will keep your liquid warm.
                 """,
