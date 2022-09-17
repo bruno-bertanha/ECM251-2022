@@ -16,16 +16,17 @@ else:
         with st.container():
             col1, col2 = st.columns(2)
             with col1:
-                st.markdown("#### " + item.get_name())
-                st.markdown("#### Price: " + str(item.get_price()))
-                if st.button("Remove", key=item.get_name()):
+                st.markdown("#### " + item[0].get_name())
+                st.markdown("#### Price: " + str(item[0].get_price()))
+                item[1] = st.number_input("Qty", min_value=1, max_value=10, value=item[1], step=1)
+                if st.button("Remove", key=item[0].get_name()):
                     st.session_state.cart.remove(item)
             with col2:
-                st.image(item.get_image(), width=100)
+                st.image(item[0].get_image(), width=100)
         st.markdown("### ________________________________________________ ")
     
     
-    total = float(sum([item.get_price() for item in st.session_state.cart]))
+    total = float(sum([item[0].get_price()*item[1] for item in st.session_state.cart]))
     
     st.write("")
     st.write("")

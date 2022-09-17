@@ -86,8 +86,13 @@ def pack_product(product):
     
     add_cart = st.button("Add to cart", key=product.get_name())
     if add_cart:
-        st.session_state.cart.append(product)
-        st.write("Added to cart!")
+        for p in st.session_state.cart:
+            if p[0].get_name() == product.get_name():
+                p[1] += 1
+                break
+            else:
+                st.session_state.cart.append([product, 1])
+                st.write("Added to cart!")
     
     st.write("")
 
