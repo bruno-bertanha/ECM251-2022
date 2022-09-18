@@ -28,10 +28,10 @@ with col3:
     else:
         st.markdown("### Please Login!")
         if st.button("Login"):
-            st.experimental_set_query_params(page="Login")
+            st.experimental_set_query_params("Login")
 
     if st.button("Cart"):
-        st.experimental_set_query_params(page="Cart")
+        st.experimental_set_query_params("Cart")
 
 st.write("")
 st.write("")
