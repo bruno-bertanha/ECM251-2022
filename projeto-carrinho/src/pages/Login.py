@@ -3,6 +3,9 @@ from modelos.usuarios.usuario import User
 
 # Login Page
 
+st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:")
+
+
 # Hardcoded user database
 users = [
             User('Bruno', 'senha'), 

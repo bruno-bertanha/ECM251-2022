@@ -1,6 +1,9 @@
 import streamlit as st
 from modelos.item import Item
 
+st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:")
+
+
 
 st.markdown("# Quokka Store")
 st.markdown("## Your Cart:")

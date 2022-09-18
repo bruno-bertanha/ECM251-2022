@@ -3,6 +3,8 @@ from modelos.item import Item
 
 # This is the home page for the site
 
+st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:", layout="wide")
+
 # Initializing the session state variables to support the multipage structure
 if 'user' not in st.session_state:
     st.session_state.user = None
@@ -26,12 +28,8 @@ with col3:
             st.session_state.logged_in = False
             st.session_state.user = None
     else:
-        st.markdown("### Please Login!")
-        if st.button("Login"):
-            st.experimental_set_query_params("Login")
-
-    if st.button("Cart"):
-        st.experimental_set_query_params("Cart")
+        st.markdown("### Please Login! Use the sidebar to the left.")
+        
 
 st.write("")
 st.write("")
