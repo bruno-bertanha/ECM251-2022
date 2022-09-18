@@ -1,3 +1,4 @@
+from turtle import onclick
 import streamlit as st
 from modelos.item import Item
 
@@ -26,7 +27,12 @@ with col3:
             st.session_state.logged_in = False
             st.session_state.user = None
     else:
-        st.markdown("### Please Login!")    
+        st.markdown("### Please Login!")
+        if st.button("Login"):
+            st.experimental_set_query_params(page="Login")
+
+    if st.button("Cart"):
+        onclick("https://quokka-store.herokuapp.com/cart")   
 
 st.write("")
 st.write("")
