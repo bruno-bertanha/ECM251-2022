@@ -1,5 +1,6 @@
 import streamlit as st
 from modelos.item import Item
+from modelos.cart import Cart
 
 # This is the home page for the site
 
@@ -11,7 +12,7 @@ if 'user' not in st.session_state:
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
 if 'cart' not in st.session_state:
-    st.session_state.cart = []
+    st.session_state.cart = Cart()
 
 # Top of the homepage
 col1, col2, col3 = st.columns(3)
@@ -30,11 +31,6 @@ with col3:
     else:
         st.markdown("### Please Login! Use the sidebar to the left.")
         
-
-st.write("")
-st.write("")
-st.write("")
-st.markdown("## Our Quokka Products")
 
 # Defining the products 
 products = [
@@ -103,5 +99,12 @@ def pack_product(product):
     st.write("")
 
 # Displaying the products
-for product in products:
-    pack_product(product)
+if st.session_state.logged_in:
+    st.write("")
+    st.write("")
+    st.write("")
+    st.markdown("## Our Quokka Products")
+    for product in products:
+        pack_product(product)
+else:
+    st.error("Please login to to show our products!")
