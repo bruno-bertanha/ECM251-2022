@@ -9,28 +9,28 @@ if st.session_state.logged_in:
     st.markdown("# Quokka Store")
     st.markdown("## Your Cart:")
 
-    if len(st.session_state.cart) == 0:
+    if st.session_state.cart.get_length() == 0:
         st.markdown("### Your cart is empty!")
     else:
-        st.markdown("### Your cart has " + str(len(st.session_state.cart)) + " product(s).")
+        st.markdown("### Your cart has " + str(st.session_state.cart.get_length()) + " product(s).")
         st.write("")
         st.write("")
 
-        for product in st.session_state.cart:
+        for product in st.session_state.cart._itens:
             with st.container():
                 col1, col2 = st.columns(2)
                 with col1:
                     st.markdown("#### " + product[0].get_name())
                     st.markdown("#### Price: " + str(product[0].get_price()))
-                    product[1] = st.number_input("Qty", min_value=1, max_value=10, value=product[1], step=1)
+                    product[1] = st.number_input("Qty", min_value=1, max_value=10, value=int(product[1]), step=1)
                     if st.button("Remove", key=product[0].get_name()):
-                        st.session_state.cart.remove(product)
+                        st.session_state.cart._itens.remove(product)
                 with col2:
                     st.image(product[0].get_image(), width=100)
             st.markdown("### ________________________________________________ ")
         
         
-        total = float(sum([product[0].get_price()*product[1] for product in st.session_state.cart]))
+        total = st.session_state.cart.get_total_value()
         
         st.write("")
         st.write("")
@@ -58,7 +58,7 @@ if st.session_state.logged_in:
         st.write("")
         if st.button("Checkout"):
             if st.session_state.logged_in:
-                st.session_state.cart.clear()
+                st.session_state.cart._itens.clear()
                 st.success("Thank you for your purchase! 🦘")
                 st.balloons()
             else:

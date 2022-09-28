@@ -18,10 +18,11 @@ class Cart:
                 st.write("Product already in cart!")
                 break
         if fadp:
-            self._itens.append([product, 1])
+            self._itens.append([product, int(1)])
             st.write("Added to cart!")
-    
+"""
     def remove_product(self, product):
-        for p in st.session_state.cart:
+        for p in self._itens:
             if p[0].get_name() == product.get_name():
                 self._itens.remove()
+"""  
