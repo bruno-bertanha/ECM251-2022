@@ -1,5 +1,5 @@
 import streamlit as st
-from modelos.usuarios.usuario import User
+from modelos.usuarios.user import User
 
 # Login Page
 
