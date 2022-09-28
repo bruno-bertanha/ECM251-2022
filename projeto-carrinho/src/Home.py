@@ -1,5 +1,5 @@
 import streamlit as st
-from modelos.item import Item
+from modelos.product import Product
 from modelos.cart import Cart
 
 # This is the home page for the site
@@ -34,7 +34,7 @@ with col3:
 
 # Defining the products 
 products = [
-            Item(   
+            Product(   
                 79.99,
                 "Funny Quokka T-Shirt",
                 "https://i.ibb.co/chLzdt7/tshirt.jpg",
@@ -44,7 +44,7 @@ products = [
                 It is available in the sizes: Quokka, S, M, L, XL, XXL and XXXL.
                 """,
                 ),
-            Item(
+            Product(
                 49.99,
                 "Quokka Socks",
                 "https://i.ibb.co/sP8rDpk/socks.jpg",
@@ -54,7 +54,7 @@ products = [
                 """,
                 ),
 
-            Item(
+            Product(
                 129.99,
                 "Quokka Plushie",
                 "https://i.ibb.co/HxB18Jt/plushie.jpg",
@@ -64,7 +64,7 @@ products = [
                 """,
                 ),
 
-            Item(
+            Product(
                 59.99,
                 "Quokka Mug",
                 "https://i.ibb.co/LtmhQ02/mug.jpg",
@@ -86,15 +86,7 @@ def pack_product(product):
     add_cart = st.button("Add to cart", key=product.get_name())
 
     if add_cart:
-        fadp = True
-        for p in st.session_state.cart:
-            if p[0].get_name() == product.get_name():
-                p[1] += 1
-                fadp = False
-                break
-        if fadp:
-            st.session_state.cart.append([product, 1])
-            st.write("Added to cart!")
+        st.session_state.cart.add_product(product)
     
     st.write("")
 

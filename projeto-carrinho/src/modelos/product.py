@@ -1,4 +1,4 @@
-class Item():
+class Product():
     def __init__(self, price, name, image, description=None):
         self._name = name
         self._price = price

@@ -1,5 +1,5 @@
 import streamlit as st
-from modelos.item import Item
+from modelos.product import Product
 from modelos.cart import Cart
 
 st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:")
@@ -12,25 +12,25 @@ if st.session_state.logged_in:
     if len(st.session_state.cart) == 0:
         st.markdown("### Your cart is empty!")
     else:
-        st.markdown("### Your cart has " + str(len(st.session_state.cart)) + " item(s).")
+        st.markdown("### Your cart has " + str(len(st.session_state.cart)) + " product(s).")
         st.write("")
         st.write("")
 
-        for item in st.session_state.cart:
+        for product in st.session_state.cart:
             with st.container():
                 col1, col2 = st.columns(2)
                 with col1:
-                    st.markdown("#### " + item[0].get_name())
-                    st.markdown("#### Price: " + str(item[0].get_price()))
-                    item[1] = st.number_input("Qty", min_value=1, max_value=10, value=item[1], step=1)
-                    if st.button("Remove", key=item[0].get_name()):
-                        st.session_state.cart.remove(item)
+                    st.markdown("#### " + product[0].get_name())
+                    st.markdown("#### Price: " + str(product[0].get_price()))
+                    product[1] = st.number_input("Qty", min_value=1, max_value=10, value=product[1], step=1)
+                    if st.button("Remove", key=product[0].get_name()):
+                        st.session_state.cart.remove(product)
                 with col2:
-                    st.image(item[0].get_image(), width=100)
+                    st.image(product[0].get_image(), width=100)
             st.markdown("### ________________________________________________ ")
         
         
-        total = float(sum([item[0].get_price()*item[1] for item in st.session_state.cart]))
+        total = float(sum([product[0].get_price()*product[1] for product in st.session_state.cart]))
         
         st.write("")
         st.write("")
