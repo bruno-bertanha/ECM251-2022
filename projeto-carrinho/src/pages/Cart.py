@@ -22,8 +22,8 @@ if st.session_state.logged_in:
                 with col1:
                     st.markdown("#### " + product[0].get_name())
                     st.markdown("#### Price: " + str(product[0].get_price()))
-                    product[1] = st.number_input("Qty", min_value=1, max_value=10, value=int(product[1]), step=1)
-                    if st.button("Remove", key=product[0].get_name()):
+                    product[1] = st.number_input("Qty", min_value=1, max_value=10, value=int(product[1]), step=1, key=product[0].get_name())
+                    if st.button("Remove", key=f"{product[0].get_name()}remove"):
                         st.session_state.cart._itens.remove(product)
                 with col2:
                     st.image(product[0].get_image(), width=100)
