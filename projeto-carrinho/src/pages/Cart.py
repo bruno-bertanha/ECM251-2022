@@ -1,6 +1,6 @@
 import streamlit as st
-from modelos.product import Product
-from modelos.cart import Cart
+from models.product import Product
+from models.cart import Cart
 
 st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:")
 

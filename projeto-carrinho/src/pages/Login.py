@@ -1,5 +1,6 @@
 import streamlit as st
-from modelos.usuarios.user import User
+from models.usuarios.user import User
+from controllers.user_controller import UserController
 
 # Login Page
 

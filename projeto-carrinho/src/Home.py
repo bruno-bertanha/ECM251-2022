@@ -1,6 +1,6 @@
 import streamlit as st
-from modelos.product import Product
-from modelos.cart import Cart
+from models.product import Product
+from models.cart import Cart
 
 # This is the home page for the site
 
