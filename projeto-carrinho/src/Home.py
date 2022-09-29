@@ -1,6 +1,7 @@
 import streamlit as st
 from models.product import Product
 from models.cart import Cart
+from controllers.product_controller import ProductController
 
 # This is the home page for the site
 
