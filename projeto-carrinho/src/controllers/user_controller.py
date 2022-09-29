@@ -9,7 +9,7 @@ class UserController():
             User('admin', 'admin'),
         ]
     
-    def validate_user(self, user, phu, php):
+    def validate_user(self, phu, php):
         if st.session_state.logged_in == False:
             for user in self._users:
                 if user.get_username() == phu and user.get_password() == php:
