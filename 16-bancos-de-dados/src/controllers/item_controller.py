@@ -18,7 +18,13 @@ class ItemController:
     def pegar_todos_itens(self) -> list[Item]:
         itens = ItemDao.get_instance().get_all()
         return itens
-    
+
     def atualizar_item(self, item) -> bool:
-        ItemDao.get_instance().atualizar_item(item)
-        
+        return ItemDao.get_instance().atualizar_item(item)
+
+    def deletar_item(self, id) -> bool:
+        return ItemDao.get_instance().deleta_item(id)
+
+    def buscar_item_nome(self, nome) -> list[Item]:
+        item = ItemDao.get_instance().buscar_item_nome(nome)
+        return item
