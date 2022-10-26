@@ -1,6 +1,5 @@
 import sqlite3
 from src.models.pedido import Pedido
-from src.models.item import Item
 class PedidoDAO:
     
     _instance = None
@@ -60,16 +59,16 @@ class PedidoDAO:
             resultados.append(Pedido(id=resultado[0], id_item=resultado[1], id_cliente=resultado[2], quantidade=resultado[3], numero_pedido=resultado[4], data_hora=resultado[5]))
         self.cursor.close()
         return resultados
-    
+
     def atualizar_pedido(self, pedido):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
                 UPDATE Pedidos SET
                 id_item = '{pedido.id_item}',
-                quantidade = '{pedido.quantidade}',
-                data_hora = '{pedido.data_hora}',
-                WHERE id = '{pedido.id}'
+                quantidade = {pedido.quantidade},
+                data_hora = '{pedido.data_hora}'
+                WHERE id = {pedido.id}
             """)
             self.conn.commit()
             self.cursor.close()
@@ -82,7 +81,7 @@ class PedidoDAO:
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
-                DELETE FROM Itens 
+                DELETE FROM Pedidos 
                 WHERE id = '{id}'
             """)
             self.conn.commit()
@@ -90,15 +89,3 @@ class PedidoDAO:
         except:
             return False
         return True
-    #TODO
-    def search_all_for_name(self,nome):
-        self.cursor = self.conn.cursor()
-        self.cursor.execute(f"""
-            SELECT * FROM Itens
-            WHERE nome LIKE '{nome}%';
-        """)
-        resultados = []
-        for resultado in self.cursor.fetchall():
-            resultados.append(Item(id=resultado[0], nome=resultado[1], preco=resultado[2]))
-        self.cursor.close()
-        return resultados
