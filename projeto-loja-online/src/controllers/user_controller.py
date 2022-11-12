@@ -4,9 +4,9 @@ import streamlit as st
 class UserController():
     def __init__(self):
         self._users = [
-            User('Bruno', 'senha'), 
-            User('Quokka', 'quokka'), 
-            User('admin', 'admin'),
+            User('Bruno', 'senha', 'bruno@gmail.com'), 
+            User('Quokka', 'quokka', 'quokka@gmail.com'), 
+            User('admin', 'admin', 'admin@gmail.com'),
         ]
     
     def validate_user(self, phu, php):

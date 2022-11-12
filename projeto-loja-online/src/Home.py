@@ -41,4 +41,4 @@ if st.session_state.logged_in:
     for product in ProductController()._products:
         ProductController.pack_product(product)
 else:
-    st.error("Please login to to show our products!")
+    st.error("Please login to show our products!")

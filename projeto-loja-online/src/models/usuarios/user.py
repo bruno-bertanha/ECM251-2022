@@ -1,6 +1,6 @@
 #from perfil import Perfil
 class User:
-    def __init__(self, username, password, email=None):
+    def __init__(self, username, password, email):
         self._username = username
         self._password = password
         self._email = email
@@ -12,3 +12,12 @@ class User:
 
     def get_password(self):
         return self._password
+    
+    def get_email(self):
+        return self._email
+    
+    def set_email(self, email):
+        self._email = email
+    
+    def set_password(self, password):
+        self._password = password
