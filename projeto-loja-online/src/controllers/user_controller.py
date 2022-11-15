@@ -25,17 +25,17 @@ class UserController():
             st.error("User could not be retrieved!")
             st.error(e)
 
-    def update_user_email(self, user):
+    def update_user_email(self, user, ne):
         try:
-            UserDAO.get_instance().update_user_email(user)
+            UserDAO.get_instance().update_user_email(user, ne)
             st.success("Email updated successfully!")
         except Exception as e:
             st.error("Email could not be updated!")
             st.error(e)
     
-    def update_user_password(self, user):
+    def update_user_password(self, user, np):
         try:
-            UserDAO.get_instance().update_user_password(user)
+            UserDAO.get_instance().update_user_password(user, np)
             st.success("Password updated successfully!")
         except Exception as e:
             st.error("Password could not be updated!")
@@ -47,25 +47,15 @@ class UserController():
         except Exception as e:
             st.error("Users could not be retrieved!")
             st.error(e)
-    
-    
-
-
-
-
-
-
-
 
 
     def validate_user(self, phu, php):
         if st.session_state.logged_in == False:
-            for user in self._users:
-                if user.get_username() == phu and user.get_password() == php:
+            userDB = UserDAO.get_instance().get_user(phu)
+            if userDB.get_password() == php:
                     st.session_state.logged_in = True
-                    st.session_state.user = user
+                    st.session_state.user = userDB
                     st.success("Logged in successfully!")
-                    break
             if st.session_state.logged_in == False:
                 st.error("Invalid username or password!")
         else: 

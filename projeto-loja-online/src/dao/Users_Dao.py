@@ -31,21 +31,21 @@ class UserDAO:
             (username,))
         user = cursor.fetchone()
         cursor.close()
-        return User(user[1], user[3], user[2])
+        return User(username= user[0], password= user[2], email= user[1])
     
-    def update_user_email(self, user):
+    def update_user_email(self, user, ne):
         cursor = self.conn.cursor()
         cursor.execute(
             'UPDATE Users SET email = ? WHERE name = ?',
-            (user.get_email(), user.get_username()))
+            (ne, user.get_username()))
         self.conn.commit()
         cursor.close()
 
-    def update_user_password(self, user):
+    def update_user_password(self, user, np):
         cursor = self.conn.cursor()
         cursor.execute(
             'UPDATE Users SET password = ? WHERE name = ?',
-            (user.get_password(), user.get_username()))
+            (np, user.get_username()))
         self.conn.commit()
         cursor.close()
     

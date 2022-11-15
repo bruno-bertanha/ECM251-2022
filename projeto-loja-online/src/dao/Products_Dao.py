@@ -14,12 +14,12 @@ class ProductDAO:
         return cls._instance
     
     def _connect(self):
-        self.conn = sqlite3.connect('./database/sqlite.db', check_same_thread=False)
+        self.conn = sqlite3.connect('C:\\Users\\bruno\\OneDrive - Instituto Maua de Tecnologia\\Prog\\ECM251-2022\\projeto-loja-online\\database\\sqlite.db', check_same_thread=False)
 
     def add_product(self, product):
         cursor = self.conn.cursor()
         cursor.execute(
-            "INSERT INTO products (name, price, description, image) VALUES (?, ?, ?)", 
+            "INSERT INTO products (name, price, description, image) VALUES (?, ?, ?, ?)", 
             (product.get_name(), product.get_price(), product.get_description(), product.get_image()))
         self.conn.commit()
         cursor.close()
@@ -31,11 +31,16 @@ class ProductDAO:
             (name,))
         product = cursor.fetchone()
         cursor.close()
-        return Product(product[1], product[2], product[3], product[4])
+        return Product(product[2], product[1], product[4], product[3])
     
     def get_all_products(self):
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM products")
-        products = cursor.fetchall()
+        products = []
+        for p in self.cursor.fetchall():
+            products.append(Product(price=p[2], 
+                                    name=p[1], 
+                                    image=p[4],
+                                    description=p[3]))
         cursor.close()
         return products

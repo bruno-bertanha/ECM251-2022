@@ -1,6 +1,7 @@
 import streamlit as st
 from models.product import Product
 from models.cart import Cart
+from controllers.product_controller import ProductController
 
 st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:")
 
@@ -15,4 +16,5 @@ image = st.text_input("Image", placeholder="Product image")
 
 # Add product button
 if st.button("Add Product"):
-    pass
+    if name and price and description and image:
+        ProductController().add_product(Product(price, name, image, description))
