@@ -15,6 +15,8 @@ sup = st.text_input("Password", placeholder="Your password", type="password")
 if st.button("Sign Up"):
     if sue == "" or suu == "" or sup == "":
         st.error("Please, fill all the fields!")
+    elif sup is not str:
+        st.error("Password must be a string!")
     else:
         user = User(suu, sup, sue)
         UserController().sign_up(user)
