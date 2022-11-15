@@ -38,7 +38,7 @@ if st.session_state.logged_in:
     st.write("")
     st.write("")
     st.markdown("## Our Quokka Products")
-    plist = ProductController.get_all_products()
+    plist = ProductController().get_all_products()
     for product in plist:
         ProductController.pack_product(product)
 else:

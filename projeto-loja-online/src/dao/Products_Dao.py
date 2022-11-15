@@ -37,7 +37,7 @@ class ProductDAO:
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM products")
         products = []
-        for p in self.cursor.fetchall():
+        for p in cursor.fetchall():
             products.append(Product(price=p[2], 
                                     name=p[1], 
                                     image=p[4],

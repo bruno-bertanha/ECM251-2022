@@ -5,8 +5,7 @@ from controllers.product_controller import ProductController
 
 st.set_page_config(page_title="Quokka Store", page_icon=":moneybag:")
 
-st.write("Inventory page")
-st.write("Add a new product to the store")
+st.markdown("## Add a new product to the store")
 
 # Product inputs
 name = st.text_input("Name", placeholder="Product name")
@@ -18,3 +17,5 @@ image = st.text_input("Image", placeholder="Product image")
 if st.button("Add Product"):
     if name and price and description and image:
         ProductController().add_product(Product(price, name, image, description))
+    else:
+        st.error("Please fill all the fields")
