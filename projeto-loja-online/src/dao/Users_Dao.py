@@ -14,7 +14,7 @@ class UserDAO:
         return cls._instance
     
     def _connect(self):
-        self.conn = sqlite3.connect('C:\\Users\\bruno\\OneDrive - Instituto Maua de Tecnologia\\Prog\\ECM251-2022\\projeto-loja-online\\database\\sqlite.db', check_same_thread=False)
+        self.conn = sqlite3.connect('database\sqlite.db', check_same_thread=False)
 
     def sign_up(self, user):
         cursor = self.conn.cursor()
