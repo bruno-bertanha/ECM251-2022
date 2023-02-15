@@ -1,4 +1,4 @@
-from item import Item
+from modelos.item import Item
 
 item1 = Item(199, 'Dark Souls')
 item2 = Item(
